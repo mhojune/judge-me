@@ -90,7 +90,6 @@ export default function CameraView({ onFaceDetected, fps = 30, transcript = '' }
         },
         width: 1280,
         height: 720,
-        fps: fps,
       })
 
       try {

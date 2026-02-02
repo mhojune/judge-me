@@ -92,8 +92,7 @@ export function calculateAudioScore(audioData: AudioData | null): number {
   const speakingScore = Math.min(40, speakingRatio * 40)
 
   // 볼륨 안정성 점수 (0-30점)
-  const currentVolume = audioData.volume || 0
-  const volumeStabilityScore = calculateVolumeStabilityScore(audioData.volumeHistory || [], currentVolume)
+  const volumeStabilityScore = calculateVolumeStabilityScore(audioData.volumeHistory || [])
 
   // 주파수 안정성 점수 (0-30점)
   const frequencyStabilityScore = calculateFrequencyStabilityScore(audioData.frequencyHistory || [])
@@ -120,8 +119,7 @@ export function calculateAudioScoreDetails(audioData: AudioData | null): {
   const speaking = Math.min(40, speakingRatio * 40)
 
   // 볼륨 안정성 점수
-  const currentVolume = audioData.volume || 0
-  const volumeStabilityScore = calculateVolumeStabilityScore(audioData.volumeHistory || [], currentVolume)
+  const volumeStabilityScore = calculateVolumeStabilityScore(audioData.volumeHistory || [])
   const volume = volumeStabilityScore
 
   // 주파수 안정성 점수
@@ -231,12 +229,6 @@ function calculateEyeContactScore(landmarks: any[], confidence: number): number 
     y: (leftEyeCenter.y + rightEyeCenter.y) / 2,
   }
 
-  // 시선 방향: 눈 중심에서 코 방향으로의 벡터
-  // 카메라를 똑바로 보면 눈과 코가 거의 수직선상에 위치
-  const eyeToNoseDistance = Math.sqrt(
-    Math.pow(eyeCenter.x - nose.x, 2) + Math.pow(eyeCenter.y - nose.y, 2)
-  )
-  
   // 얼굴 중심과의 거리 (정면을 보면 작아짐)
   const eyeToFaceCenterDistance = Math.sqrt(
     Math.pow(eyeCenter.x - faceCenter.x, 2) + Math.pow(eyeCenter.y - faceCenter.y, 2)
@@ -318,7 +310,7 @@ function calculatePostureScore(landmarks: any[]): number {
  * 볼륨 안정성 점수 계산 (개선됨)
  * 사용자의 평균 볼륨 대비 일정 범위 내 유지
  */
-function calculateVolumeStabilityScore(volumeHistory: number[], currentVolume: number): number {
+function calculateVolumeStabilityScore(volumeHistory: number[]): number {
   if (volumeHistory.length < 5) {
     // 히스토리가 부족하면 기본 점수
     return 15

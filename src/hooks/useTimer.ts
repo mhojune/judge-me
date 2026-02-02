@@ -11,7 +11,7 @@ import { useState, useEffect, useRef } from 'react'
 export function useTimer(initialTime: number, onExpire?: () => void) {
   const [timeLeft, setTimeLeft] = useState(initialTime)
   const [isExpired, setIsExpired] = useState(false)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const intervalRef = useRef<number | null>(null)
   const onExpireRef = useRef(onExpire)
 
   // onExpire 콜백을 ref에 저장

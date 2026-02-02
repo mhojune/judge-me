@@ -30,7 +30,7 @@ export default function MicAnalyzer({
   const [isAnalyzing, setIsAnalyzing] = useState(false)
   const [volume, setVolume] = useState(0)
   const [isSpeaking, setIsSpeaking] = useState(false)
-  const { startMic, stopMic, isStreaming, stream } = useMic()
+  const { startMic, stopMic, stream } = useMic()
   const { transcript, isListening, isSupported, error: speechError, startListening, stopListening } = useSpeechRecognition('ko-KR')
   
   const audioContextRef = useRef<AudioContext | null>(null)
@@ -80,6 +80,9 @@ export default function MicAnalyzer({
     }
 
     const initializeAudio = () => {
+      const currentStream = stream
+      if (!currentStream) return
+      
       try {
         // 기존 컨텍스트가 있으면 정리
         if (audioContextRef.current) {
@@ -95,14 +98,14 @@ export default function MicAnalyzer({
         const analyser = audioContext.createAnalyser()
         
         // 스트림이 활성화되어 있는지 확인
-        const audioTracks = stream.getAudioTracks()
+        const audioTracks = currentStream.getAudioTracks()
         if (audioTracks.length === 0 || !audioTracks[0].enabled) {
           console.warn('No active audio tracks')
           audioContext.close().catch(console.error)
           return
         }
 
-        const microphone = audioContext.createMediaStreamSource(stream)
+        const microphone = audioContext.createMediaStreamSource(currentStream)
         
         analyser.fftSize = 2048 // 더 높은 해상도로 변경
         analyser.smoothingTimeConstant = 0.3 // 더 빠른 반응
@@ -135,7 +138,17 @@ export default function MicAnalyzer({
 
       try {
         // getByteFrequencyData를 사용하여 볼륨 측정
-        analyserRef.current.getByteFrequencyData(dataArrayRef.current)
+        if (analyserRef.current) {
+          const bufferLength = analyserRef.current.frequencyBinCount
+          const dataArray = new Uint8Array(bufferLength)
+          analyserRef.current.getByteFrequencyData(dataArray)
+          
+          // dataArrayRef 업데이트
+          if (!dataArrayRef.current || dataArrayRef.current.length !== bufferLength) {
+            dataArrayRef.current = new Uint8Array(bufferLength)
+          }
+          dataArrayRef.current.set(dataArray)
+        }
         
         // 볼륨 계산 - 최대값과 평균을 모두 활용
         let sum = 0

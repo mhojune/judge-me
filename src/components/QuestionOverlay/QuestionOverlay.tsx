@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
 import { useTimer } from '../../hooks/useTimer'
 import './QuestionOverlay.css'
 
