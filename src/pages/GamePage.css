@@ -1,0 +1,260 @@
+.game-page {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: #1a1a1a;
+}
+
+.game-content {
+  padding-top: 200px; /* QuestionOverlay 공간 확보 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.media-section {
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  justify-content: center;
+}
+
+.media-section > .score-breakdown-panel {
+  flex: 0 0 280px;
+}
+
+.media-section > .camera-view {
+  flex: 2 1 auto;
+  min-width: 500px;
+}
+
+.media-section > .right-panel {
+  flex: 0 0 320px;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.submit-button {
+  width: 320px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  align-self: stretch;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.countdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.countdown-content {
+  text-align: center;
+}
+
+.countdown-number {
+  font-size: 8rem;
+  font-weight: 900;
+  color: #4CAF50;
+  line-height: 1;
+  margin-bottom: 1rem;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.countdown-text {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 1024px) {
+  .game-content {
+    padding-top: 180px;
+  }
+  
+  .media-section {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 1rem;
+  }
+  
+  .media-section > .score-breakdown-panel {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 600px;
+    order: 2;
+  }
+  
+  .media-section > .camera-view {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: unset;
+    order: 1;
+  }
+  
+  .media-section > .right-panel {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 600px;
+    order: 3;
+  }
+  
+  .left-panel {
+    width: 100%;
+    max-width: 600px;
+    order: 2;
+  }
+  
+  .right-panel {
+    width: 100%;
+    max-width: 600px;
+    order: 1;
+  }
+  
+  .mic-analyzer {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .judge-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .submit-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-content {
+    padding-top: 160px;
+    padding-bottom: 1rem;
+  }
+  
+  .media-section {
+    padding: 0 0.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .camera-view {
+    width: 100%;
+  }
+  
+  .right-panel {
+    width: 100%;
+    max-width: 100%;
+    gap: 1rem;
+  }
+  
+  .mic-analyzer {
+    width: 100%;
+    max-width: 100%;
+    min-width: unset;
+  }
+  
+  .judge-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .countdown-number {
+    font-size: 5rem;
+  }
+  
+  .countdown-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-content {
+    padding-top: 140px;
+  }
+  
+  .media-section {
+    padding: 0 0.25rem;
+    gap: 0.75rem;
+  }
+  
+  .right-panel {
+    gap: 0.75rem;
+  }
+  
+  .countdown-number {
+    font-size: 4rem;
+  }
+  
+  .countdown-text {
+    font-size: 1rem;
+  }
+}

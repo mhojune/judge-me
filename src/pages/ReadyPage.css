@@ -1,0 +1,493 @@
+.ready-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ready-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  animation: float 20s infinite ease-in-out;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  right: -50px;
+  animation-delay: 5s;
+}
+
+.circle-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: 10%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
+}
+
+.ready-container {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  padding: 3rem 2.5rem;
+  max-width: 1400px;
+  width: 100%;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ready-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.ready-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.ready-title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.ready-description {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ready-media-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  align-items: start;
+}
+
+.media-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.media-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.media-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.media-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.media-content {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ReadyPage에서 사용하는 CameraView 스타일 - 크게 표시 */
+.media-content .camera-view {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.media-content .camera-container {
+  width: 100% !important;
+  min-height: 400px !important;
+}
+
+/* ReadyPage에서 사용하는 MicAnalyzer 스타일 오버라이드 */
+.media-content .mic-analyzer {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  padding: 0.5rem !important;
+  margin: 0 auto !important;
+}
+
+.media-content .mic-visualizer {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.media-content .mic-controls {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.media-content .mic-controls button {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ReadyPage에서 사용하는 MicAnalyzer 스타일 오버라이드 */
+.media-content .mic-analyzer {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.media-content .mic-visualizer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.media-content .mic-controls {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.ready-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.check-icon {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ready-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ready-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ready-info p {
+  margin: 0;
+  color: #667eea;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.start-button {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.start-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.start-button:hover::before {
+  left: 100%;
+}
+
+.start-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+}
+
+.start-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.start-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+.button-arrow {
+  position: relative;
+  z-index: 1;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.start-button:hover .button-arrow {
+  transform: translateX(5px);
+}
+
+@media (max-width: 1024px) {
+  .ready-media-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .media-content .camera-container {
+    min-height: 300px !important;
+  }
+  
+  .ready-container {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ready-page {
+    padding: 1rem;
+  }
+  
+  .ready-container {
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+  }
+  
+  .ready-header {
+    margin-bottom: 2rem;
+  }
+  
+  .ready-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .ready-title {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .ready-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .ready-media-section {
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .media-card {
+    padding: 1.25rem;
+  }
+  
+  .media-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .media-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .media-content .camera-container {
+    min-height: 250px !important;
+  }
+  
+  .ready-indicator {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    margin-top: 0.75rem;
+  }
+  
+  .ready-footer {
+    gap: 1.25rem;
+  }
+  
+  .ready-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+  }
+  
+  .ready-info p {
+    font-size: 0.9rem;
+  }
+  
+  .start-button {
+    padding: 1.2rem 1.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ready-page {
+    padding: 0.75rem;
+  }
+  
+  .ready-container {
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+  }
+  
+  .ready-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .ready-icon {
+    font-size: 2.5rem;
+  }
+  
+  .ready-title {
+    font-size: 1.75rem;
+  }
+  
+  .ready-description {
+    font-size: 0.9rem;
+  }
+  
+  .ready-media-section {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .media-card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+  
+  .media-header h3 {
+    font-size: 1.15rem;
+  }
+  
+  .media-content .camera-container {
+    min-height: 200px !important;
+  }
+  
+  .start-button {
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+  }
+  
+  .ready-info {
+    padding: 0.75rem 1rem;
+  }
+  
+  .ready-info p {
+    font-size: 0.85rem;
+  }
+}

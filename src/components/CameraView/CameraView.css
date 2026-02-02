@@ -1,0 +1,189 @@
+.camera-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.camera-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.camera-video,
+.camera-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-canvas {
+  pointer-events: none;
+}
+
+.speech-transcript {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 70%, transparent 100%);
+  padding: 1.5rem 1rem 1rem;
+  color: white;
+  z-index: 10;
+}
+
+.transcript-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+  color: #4CAF50;
+}
+
+.transcript-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  word-break: break-word;
+  max-height: 120px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.transcript-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+.transcript-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.transcript-text::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.transcript-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.error-message {
+  color: #ff4444;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 68, 68, 0.1);
+  border-radius: 4px;
+}
+
+.camera-controls {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 140px;
+}
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #45a049;
+}
+
+.btn-secondary {
+  background: #f44336;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #da190b;
+}
+
+@media (max-width: 768px) {
+  .camera-view {
+    width: 100%;
+  }
+  
+  .camera-container {
+    border-radius: 0;
+    aspect-ratio: 4 / 3;
+  }
+  
+  .speech-transcript {
+    padding: 1rem 0.75rem 0.75rem;
+  }
+  
+  .transcript-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .transcript-text {
+    font-size: 0.95rem;
+    max-height: 80px;
+  }
+  
+  .camera-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .camera-container {
+    aspect-ratio: 3 / 2;
+  }
+  
+  .speech-transcript {
+    padding: 0.875rem 0.5rem 0.5rem;
+  }
+  
+  .transcript-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+  
+  .transcript-text {
+    font-size: 0.85rem;
+    max-height: 70px;
+  }
+  
+  .camera-controls {
+    gap: 0.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
