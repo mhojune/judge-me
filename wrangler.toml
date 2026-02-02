@@ -1,4 +1,4 @@
-name = "ai-judge"
+name = "judge-me"
 main = "workers/ai-judge.js"
 compatibility_date = "2024-01-01"
 
